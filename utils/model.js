@@ -15,16 +15,16 @@ function write(fileName, data) {
 }
 
 function hashPasswd(password) {
-  return createHash("sha256").update(password).digest("hex");
+  return hash = createHash("sha256").update(password).digest("hex");
 }
 
 function queryFilter(key, value, data) {
-  return filtered = data.filter((item) => item[key] == value);
+  return (filtered = data.filter((item) => item[key] == value));
 }
 
 module.exports = {
   read,
   write,
   hashPasswd,
-  queryFilter
+  queryFilter,
 };
