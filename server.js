@@ -12,6 +12,10 @@ const httpServer = (req, res) => {
   // ____________________  *** /login route *** _________________________
 
   // admin login route
+  /**
+   * username: admin
+   * password: admin
+   */
   app.post("/login", adminController.POST);
 
   // ____________________  *** /categories route *** _________________________
