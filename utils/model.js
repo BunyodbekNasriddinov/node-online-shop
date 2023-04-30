@@ -15,11 +15,22 @@ function write(fileName, data) {
 }
 
 function hashPasswd(password) {
-  return hash = createHash("sha256").update(password).digest("hex");
+  return (hash = createHash("sha256").update(password).digest("hex"));
 }
 
-function queryFilter(key, value, data) {
-  return (filtered = data.filter((item) => item[key] == value));
+function queryFilter(queryObj, data) {
+  /**
+   * @param queryObj query object key and value { key: value }
+   * @param data =>  filtered data []
+   */
+
+  return (filtered = data.filter((user) => {
+    let isValid = true;
+
+    for (key in queryObj) isValid = isValid && user[key] == queryObj[key];
+
+    return isValid;
+  }));
 }
 
 module.exports = {
