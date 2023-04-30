@@ -12,10 +12,11 @@ module.exports = {
       ).category_id;
     });
 
-    console.log(products);
-
     /*query filter add function*/
-    const data = queryFilter(req.query, products);
+    let data = queryFilter(req.query, products);
+
+    // if query empty data => []
+    if (Object.keys(req.query).length == 0) data = [];
 
     res.json(200, data);
   },
